@@ -3,6 +3,8 @@ import fs from "fs";
 import path from "path";
 import type { CMSStore } from "../../../../cms/types";
 
+export const dynamic = "force-static";
+
 const DATA_PATH = path.join(process.cwd(), "cms", "data", "store.json");
 
 function readStore(): CMSStore | null {
