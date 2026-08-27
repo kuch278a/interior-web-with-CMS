@@ -1,13 +1,31 @@
 # AURATECH Studio — Visionary Architecture & Interior Luxury with CMS
 
-An award-winning, luxury architectural studio website built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**, featuring a headless CMS control plane, live dynamic content bindings, interactive spatial cost estimators, and case study modals.
+[![Deploy to GitHub Pages](https://github.com/kuch278a/interior-web-with-CMS/actions/workflows/pages.yml/badge.svg)](https://github.com/kuch278a/interior-web-with-CMS/actions/workflows/pages.yml)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16.1.6-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![React 19](https://img.shields.io/badge/React-19.2.3-61DAFB?style=flat&logo=react)](https://react.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-Proprietary-purple.svg)]()
+
+> **Live Production Website**: **[https://kuch278a.github.io/interior-web-with-CMS/](https://kuch278a.github.io/interior-web-with-CMS/)**
+
+An award-winning, luxury architectural studio web application built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**, featuring a headless CMS control plane, live dynamic content bindings, interactive spatial cost estimators, and case study modals.
 
 ---
 
-## ✨ Features
+## 🌐 Live Deployments
+
+| Platform | Status | URL |
+|---|---|---|
+| **GitHub Pages (Active)** | 🟢 Live & Automated | [https://kuch278a.github.io/interior-web-with-CMS/](https://kuch278a.github.io/interior-web-with-CMS/) |
+| **Vercel (Optional)** | ⚡ Ready for Import | [Deploy on Vercel](https://vercel.com/new) |
+
+---
+
+## ✨ Key Features
 
 - **🏛️ High-End Aesthetics & Glassmorphism**: Tailored luxury dark/light mode with glowing ambient orbs, micro-interactions, and smooth cubic-bezier transitions.
-- **⚡ Next.js 16 & React 19 Engine**: Ultra-fast Server-Side Rendering (SSR) with Static Site Generation (SSG) and Turbopack.
+- **⚡ Next.js 16 & React 19 Engine**: Ultra-fast Server-Side Rendering (SSR) with Static Site Generation (SSG), Turbopack, and automatic image optimization.
 - **🛠️ Integrated CMS Control Plane (`/admin`)**:
   - Live homepage editor (headlines, badge text, metrics, and featured spotlight project).
   - Portfolio project management (create, publish/unpublish, delete, set featured).
@@ -30,8 +48,7 @@ An award-winning, luxury architectural studio website built with **Next.js 16 (A
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) & Vanilla CSS Tokens |
 | **Language** | [TypeScript 5](https://www.typescriptlang.org/) |
 | **CMS / Backend** | Custom Headless REST API (`/api/cms`) + Strapi Integration |
-| **Image Optimization**| Next.js Image with Unsplash Remote Patterns |
-| **CI / CD** | GitHub Actions (`.github/workflows/deploy.yml`) |
+| **Hosting & CI/CD** | GitHub Pages + GitHub Actions (`.github/workflows/pages.yml`) |
 
 ---
 
@@ -40,9 +57,10 @@ An award-winning, luxury architectural studio website built with **Next.js 16 (A
 ```text
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml          # GitHub Actions CI/CD workflow
+│       ├── pages.yml           # Automated GitHub Pages CI/CD workflow
+│       └── deploy.yml          # Continuous integration build & lint check
 ├── cms/
-│   ├── client.ts               # Universal CMS client with SSR fallback
+│   ├── client.ts               # Universal CMS client with SSR & static fallback
 │   ├── config.ts               # Strapi API config & endpoints
 │   ├── types.ts                # TypeScript interfaces for all data models
 │   ├── data/
@@ -51,9 +69,9 @@ An award-winning, luxury architectural studio website built with **Next.js 16 (A
 │   └── strapi/                 # Strapi Docker Compose setup
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx            # Main Homepage (Dynamic SSR)
+│   │   ├── page.tsx            # Main Homepage
 │   │   ├── layout.tsx          # Global Root Layout & Font config
-│   │   ├── globals.css         # Design system, glassmorphism, & theme vars
+│   │   ├── globals.css         # Design system, glassmorphism, & theme tokens
 │   │   ├── about/page.tsx      # Studio ethos, team, & awards
 │   │   ├── admin/              # CMS Control Plane & Login
 │   │   ├── api/cms/route.ts    # REST API Route for CMS store
@@ -71,7 +89,7 @@ An award-winning, luxury architectural studio website built with **Next.js 16 (A
 │           ├── HeroSection.tsx
 │           ├── Navbar.tsx
 │           └── TestimonialCard.tsx
-├── next.config.ts              # Next.js configuration
+├── next.config.ts              # Next.js configuration (static export + basePath)
 ├── package.json
 └── tsconfig.json
 ```
@@ -100,7 +118,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 4. Build & Typecheck
+### 4. Build & Verification
 ```bash
 # Run ESLint check
 npm run lint
@@ -118,86 +136,19 @@ npm run start
 
 Access the studio control plane to edit homepage copy, manage portfolio items, or review schemas in real time.
 
-- **URL**: [http://localhost:3000/admin](http://localhost:3000/admin)
+- **Local URL**: [http://localhost:3000/admin](http://localhost:3000/admin)
+- **Live URL**: [https://kuch278a.github.io/interior-web-with-CMS/admin/](https://kuch278a.github.io/interior-web-with-CMS/admin/)
 - **Demo Admin Email**: `admin@auratech.design`
 - **Demo Password**: `admin123`
 
-Any updates made in the admin dashboard immediately update `cms/data/store.json` and sync across the live application.
-
 ---
 
-## 🌐 How to Deploy Using GitHub
+## 🤖 Automated CI/CD & Deployment
 
-You can deploy this project directly from your GitHub repository using any of the following methods:
-
-### Method 1: Deploy with Vercel (Recommended — 2 Minutes)
-
-Vercel is the native hosting platform for Next.js and provides automatic deployments on every `git push`.
-
-1. **Push your latest changes to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Update codebase and configurations"
-   git push origin master
-   ```
-
-2. **Connect to Vercel**:
-   - Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
-   - Click **"Add New..."** > **"Project"**.
-   - Select your repository: `kuch278a/interior-web-with-CMS`.
-   - Vercel will automatically detect **Next.js**.
-
-3. **Configure Environment Variables (Optional)**:
-   If connecting to an external Strapi instance, add:
-   - `NEXT_PUBLIC_STRAPI_URL` = `https://your-strapi-instance.com`
-   - `STRAPI_API_TOKEN` = `your_strapi_api_token`
-
-4. **Deploy**:
-   - Click **"Deploy"**.
-   - Your site will be live on a `*.vercel.app` domain with free SSL and global CDN.
-   - Any future commits pushed to `master` or `main` will automatically trigger a new production deployment.
-
----
-
-### Method 2: Automated Deployment via GitHub Actions
-
-The repository includes a ready-to-use CI/CD workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) that:
-- Automatically runs on every push and pull request to `master` and `main`.
-- Runs `npm ci`, `npm run lint`, and `npm run build` to verify code integrity.
-- Optionally deploys to Vercel if repository secrets are configured.
-
-To enable automated deployment in GitHub Actions:
-1. In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**.
-2. Add the following repository secrets:
-   - `VERCEL_TOKEN`: Your Vercel Personal Access Token ([Generate here](https://vercel.com/account/tokens)).
-   - `VERCEL_ORG_ID`: Found in your project settings or `.vercel/project.json`.
-   - `VERCEL_PROJECT_ID`: Found in your project settings or `.vercel/project.json`.
-
----
-
-### Method 3: Deploy to Netlify
-
-1. Go to [netlify.com](https://www.netlify.com/) and click **"Add new site"** > **"Import an existing project"**.
-2. Select **GitHub** and authorize `kuch278a/interior-web-with-CMS`.
-3. Set the build settings:
-   - **Build command**: `npm run build`
-   - **Publish directory**: `.next`
-4. Click **"Deploy Site"**.
-
----
-
-### Method 4: Deploy with Docker / Self-Hosted VPS
-
-If deploying to a VPS (Ubuntu/Debian, Railway, or DigitalOcean):
-
-```bash
-# 1. Build the production application
-npm run build
-
-# 2. Start using PM2 or Node.js process manager
-npm install -g pm2
-pm2 start npm --name "auratech-studio" -- start -- -p 3000
-```
+Every commit pushed to `master` automatically triggers the **[GitHub Pages Workflow](.github/workflows/pages.yml)**:
+1. Installs dependencies and runs ESLint.
+2. Compiles and exports the Next.js static site to `./out`.
+3. Deploys the latest artifact to [https://kuch278a.github.io/interior-web-with-CMS/](https://kuch278a.github.io/interior-web-with-CMS/).
 
 ---
 
