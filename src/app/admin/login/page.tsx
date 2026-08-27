@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../../../components/ui/Navbar";
-import Link from "next/link";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -24,6 +23,7 @@ export default function AdminLoginPage() {
       ) {
         localStorage.setItem("auratech_cms_auth", "true");
         localStorage.setItem("auratech_cms_user", email);
+        window.dispatchEvent(new Event("storage"));
         router.push("/admin");
       } else {
         setError("Invalid credentials. Please use the demo credentials below.");

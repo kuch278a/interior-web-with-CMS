@@ -32,7 +32,7 @@ function getLocalStore(): CMSStore | null {
 /**
  * Generic GET request with fallback to local persistent store.
  */
-export async function fetchFromCMS<T extends Record<string, unknown>>(
+export async function fetchFromCMS<T>(
   endpoint: string,
   storeKey: keyof CMSStore,
   formatFn?: (item: unknown) => { id: number; attributes: T }

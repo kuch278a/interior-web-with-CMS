@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useSyncExternalStore } from "react";
 import Navbar from "../../components/ui/Navbar";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,9 +13,33 @@ import type {
   CMSStore,
 } from "../../../cms/types";
 
+function subscribeAuth(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+function getAuthSnapshot(): boolean {
+  if (typeof window === "undefined") return false;
+  return localStorage.getItem("auratech_cms_auth") === "true";
+}
+
+function getUserSnapshot(): string {
+  if (typeof window === "undefined") return "admin@auratech.design";
+  return localStorage.getItem("auratech_cms_user") || "admin@auratech.design";
+}
+
+function getEmptyAuthSnapshot(): boolean {
+  return false;
+}
+
+function getDefaultUserSnapshot(): string {
+  return "admin@auratech.design";
+}
+
 export default function CMSAdminPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userEmail, setUserEmail] = useState("");
+  const isAuthenticated = useSyncExternalStore(subscribeAuth, getAuthSnapshot, getEmptyAuthSnapshot);
+  const userEmail = useSyncExternalStore(subscribeAuth, getUserSnapshot, getDefaultUserSnapshot);
+
   const [activeTab, setActiveTab] = useState("homepage");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -50,32 +74,33 @@ export default function CMSAdminPage() {
   const [newLocation, setNewLocation] = useState("");
   const [newDescription, setNewDescription] = useState("");
 
-  // Check auth & fetch live store on mount
   useEffect(() => {
-    const isAuth = localStorage.getItem("auratech_cms_auth") === "true";
-    setIsAuthenticated(isAuth);
-    setUserEmail(localStorage.getItem("auratech_cms_user") || "admin@auratech.design");
-
-    fetchStore();
-  }, []);
-
-  const fetchStore = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch("/api/cms");
-      if (res.ok) {
-        const data = (await res.json()) as CMSStore;
-        if (data.homepage) setHomepage(data.homepage);
-        if (data.projects) setProjects(data.projects);
-        if (data.blogPosts) setBlogs(data.blogPosts);
-        if (data.testimonials) setTestimonials(data.testimonials);
+    let ignore = false;
+    const loadStore = async () => {
+      try {
+        const res = await fetch("/api/cms");
+        if (res.ok && !ignore) {
+          const data = (await res.json()) as CMSStore;
+          if (data.homepage) setHomepage(data.homepage);
+          if (data.projects) setProjects(data.projects);
+          if (data.blogPosts) setBlogs(data.blogPosts);
+          if (data.testimonials) setTestimonials(data.testimonials);
+        }
+      } catch (e) {
+        console.error("Failed to load store", e);
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
       }
-    } catch (e) {
-      console.error("Failed to load store", e);
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+
+    loadStore();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   const persistUpdate = async (updates: Partial<CMSStore>, successMsg = "Changes saved to live main page!") => {
     setSaving(true);
@@ -150,7 +175,7 @@ export default function CMSAdminPage() {
   const handleSignOut = () => {
     localStorage.removeItem("auratech_cms_auth");
     localStorage.removeItem("auratech_cms_user");
-    setIsAuthenticated(false);
+    window.dispatchEvent(new Event("storage"));
   };
 
   if (!isAuthenticated && !loading) {
