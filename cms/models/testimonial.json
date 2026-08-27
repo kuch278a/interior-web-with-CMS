@@ -1,0 +1,17 @@
+{
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonial",
+    "description": "Client testimonials for the portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "author": { "type": "string", "required": true },
+    "content": { "type": "text", "required": true },
+    "rating": { "type": "integer", "min": 1, "max": 5 }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "team-members",
+  "info": {
+    "singularName": "team-member",
+    "pluralName": "team-members",
+    "displayName": "Team Member",
+    "description": "Team members of the interior design studio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "role": { "type": "string" },
+    "photo": { "type": "media", "multiple": false },
+    "bio": { "type": "text" }
+  }
+}

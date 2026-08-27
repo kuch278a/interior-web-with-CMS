@@ -1,0 +1,44 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    services:
+      strapi:
+        image: docker.io/strapi/strapi:latest
+        ports:
+          - 1337:1337
+        env:
+          DATABASE_CLIENT: postgres
+          DATABASE_HOST: postgres
+          DATABASE_PORT: 5432
+          DATABASE_NAME: strapi
+          DATABASE_USERNAME: strapi
+          DATABASE_PASSWORD: strapi
+        options: --health-cmd "curl -f http://localhost:1337/_health || exit 1" --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint and type‑check
+        run: npm run lint && npm run build
+      - name: Run tests
+        run: npm test
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          CMS_BASE_URL: http://localhost:1337
+          CMS_TOKEN: ${{ secrets.CMS_TOKEN }}
+        run: npx vercel --prod --confirm

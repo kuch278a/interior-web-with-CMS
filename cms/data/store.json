@@ -1,0 +1,228 @@
+{
+  "homepage": {
+    "badgeText": "✨ Architectural Excellence Award 2026 Winner",
+    "heroTitlePrefix": "Transforming Spaces into",
+    "heroTitleAccent": "Living Architecture & High Design",
+    "heroSubtitle": "We combine structural architectural precision, organic materiality, and circadian ambient illumination to craft bespoke physical sanctuaries.",
+    "ctaPrimaryText": "Explore Portfolio",
+    "ctaSecondaryText": "Capabilities & Process",
+    "metrics": [
+      {
+        "value": "140+",
+        "label": "Landmarks Built"
+      },
+      {
+        "value": "18",
+        "label": "Design Awards"
+      },
+      {
+        "value": "99.4%",
+        "label": "Satisfaction"
+      },
+      {
+        "value": "12 yrs",
+        "label": "Studio Excellence"
+      }
+    ],
+    "featuredProjectId": 4
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Aura Luxury Penthouse",
+      "category": "Residential",
+      "location": "Tribeca, New York",
+      "status": "Draft",
+      "stats": "3,800 sq ft • Manhattan",
+      "description": "Bespoke minimalist interior design featuring custom Italian marble, smart ambient lighting, and panoramic cityscape views.",
+      "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+      "hoverImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "tags": [
+        "Residential",
+        "Modernist",
+        "Lighting"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Nexus Tech Headquarters",
+      "category": "Commercial",
+      "location": "Silicon Valley, CA",
+      "status": "Draft",
+      "stats": "24,000 sq ft • Palo Alto",
+      "description": "Next-generation collaborative workspace engineered for creative agility, biophilic acoustics, and modular productivity zones.",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+      "hoverImage": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80",
+      "tags": [
+        "Commercial",
+        "Biophilic",
+        "Smart Office"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Elysian Wellness Retreat",
+      "category": "Hospitality",
+      "location": "Kyoto, Japan",
+      "status": "Draft",
+      "stats": "12,500 sq ft • Kyoto",
+      "description": "Organic Japanese-Scandinavian fusion sanctuary with natural cedar accents, thermal bath aesthetics, and meditative lightwells.",
+      "image": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1200&q=80",
+      "hoverImage": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1200&q=80",
+      "tags": [
+        "Hospitality",
+        "Japandi",
+        "Eco-Luxury"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Solaris Glass Pavilion",
+      "category": "Sustainable",
+      "location": "Big Sur, CA",
+      "status": "Draft",
+      "stats": "5,200 sq ft • Coastal",
+      "description": "Zero-emission cliffside residential pavilion utilizing electrochromic glass facades and geothermal climate architecture.",
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "hoverImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "tags": [
+        "Sustainable",
+        "High-Tech",
+        "Coastal"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "title": "Architectural Interior Design",
+      "icon": "📐",
+      "description": "End-to-end spatial planning, 3D architectural visualization, structural modifications, and luxury turnkey execution.",
+      "features": [
+        "Spatial Optimization",
+        "Photorealistic 3D Renders",
+        "Material Engineering"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Custom Furniture & Curated Millwork",
+      "icon": "✨",
+      "description": "Artisan-crafted bespoke furniture, custom cabinetry, bespoke lighting fixtures, and rare material sourcing.",
+      "features": [
+        "Artisan Craftsmanship",
+        "Global Sourcing",
+        "Exclusive Finishes"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Smart Home & Acoustic Engineering",
+      "icon": "🎛️",
+      "description": "Seamless integration of intelligent architectural lighting, climate automation, invisible sound, and IoT ecosystems.",
+      "features": [
+        "Lutron Lighting Scenes",
+        "Architectural Acoustics",
+        "Unified Automation"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Sustainable & Biophilic Design",
+      "icon": "🌿",
+      "description": "Eco-certified carbon-neutral interiors utilizing living walls, natural ventilation flows, and non-toxic regenerative materials.",
+      "features": [
+        "LEED Certification",
+        "Living Green Walls",
+        "Zero-VOC Materials"
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "author": "Victoria Sterling",
+      "role": "Managing Director, Sterling Capital Partners",
+      "content": "Their transformative vision completely redefined our flagship Manhattan penthouse. The glasswork, custom lighting, and bespoke walnut cabinetry exceed perfection.",
+      "rating": 5,
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      "status": "Approved"
+    },
+    {
+      "id": 2,
+      "author": "Marcus Vance",
+      "role": "Founder & CEO, Horizon Labs",
+      "content": "Working with this team was an extraordinary experience. They delivered our 30,000 sq ft headquarters on time, on budget, and created an inspiring environment our employees love.",
+      "rating": 5,
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "status": "Approved"
+    },
+    {
+      "id": 3,
+      "author": "Elena Rostova",
+      "role": "Hospitality Curator, Lumina Resorts",
+      "content": "The level of craftsmanship and architectural subtlety is unmatched. Every corner feels intentional, calming, and deeply luxurious. Truly visionary designers.",
+      "rating": 5,
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      "status": "Approved"
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "The 2026 Shift: Warm Brutalism Meets Organic Minimalism",
+      "slug": "warm-brutalism-organic-minimalism",
+      "excerpt": "Exploring how contemporary architects are balancing raw textured concrete with hand-hewn oak and warm incandescent atmospheres.",
+      "author": "Sebastian Croft",
+      "readTime": "5 min read",
+      "publishedAt": "Aug 24, 2026",
+      "coverImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "status": "Published"
+    },
+    {
+      "id": 2,
+      "title": "Lighting as Sculpture: Designing with Light and Shadow",
+      "slug": "lighting-as-sculpture",
+      "excerpt": "How indirect architectural illumination and circadian rhythms transform high-end residential interiors after dusk.",
+      "author": "Julian Alvarez",
+      "readTime": "4 min read",
+      "publishedAt": "Aug 18, 2026",
+      "coverImage": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80",
+      "status": "Published"
+    },
+    {
+      "id": 3,
+      "title": "Curating Tactile Luxury: Stone, Bronze, and Raw Linen",
+      "slug": "curating-tactile-luxury",
+      "excerpt": "A guide to selecting enduring, honest materials that develop an exquisite natural patina over decades of living.",
+      "author": "Amara Chen",
+      "readTime": "6 min read",
+      "publishedAt": "Aug 10, 2026",
+      "coverImage": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+      "status": "Draft"
+    }
+  ],
+  "team": [
+    {
+      "id": 1,
+      "name": "Sebastian Croft",
+      "role": "Principal Architect & Founder",
+      "bio": "Former lead partner at Foster + Partners with 18+ years crafting award-winning luxury residential and hospitality landmarks.",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Amara Chen",
+      "role": "Head of Interior Architecture",
+      "bio": "Specialist in bespoke materiality, acoustic luxury, and sculptural spatial design with accolades from Architectural Digest.",
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Julian Alvarez",
+      "role": "Director of Lighting & Smart Living",
+      "bio": "Pioneering interactive illumination and sustainable smart home architectures for world-class private estates.",
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+    }
+  ]
+}
