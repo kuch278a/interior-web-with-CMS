@@ -24,7 +24,11 @@
         "label": "Studio Excellence"
       }
     ],
-    "featuredProjectId": 4
+    "featuredProjectId": 1,
+    "featuredProjectIds": [
+      1,
+      2
+    ]
   },
   "projects": [
     {
@@ -32,7 +36,7 @@
       "title": "Aura Luxury Penthouse",
       "category": "Residential",
       "location": "Tribeca, New York",
-      "status": "Draft",
+      "status": "Published",
       "stats": "3,800 sq ft • Manhattan",
       "description": "Bespoke minimalist interior design featuring custom Italian marble, smart ambient lighting, and panoramic cityscape views.",
       "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
@@ -48,7 +52,7 @@
       "title": "Nexus Tech Headquarters",
       "category": "Commercial",
       "location": "Silicon Valley, CA",
-      "status": "Draft",
+      "status": "Published",
       "stats": "24,000 sq ft • Palo Alto",
       "description": "Next-generation collaborative workspace engineered for creative agility, biophilic acoustics, and modular productivity zones.",
       "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
@@ -64,11 +68,11 @@
       "title": "Elysian Wellness Retreat",
       "category": "Hospitality",
       "location": "Kyoto, Japan",
-      "status": "Draft",
+      "status": "Published",
       "stats": "12,500 sq ft • Kyoto",
       "description": "Organic Japanese-Scandinavian fusion sanctuary with natural cedar accents, thermal bath aesthetics, and meditative lightwells.",
-      "image": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1200&q=80",
-      "hoverImage": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
+      "hoverImage": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
       "tags": [
         "Hospitality",
         "Japandi",
@@ -80,7 +84,7 @@
       "title": "Solaris Glass Pavilion",
       "category": "Sustainable",
       "location": "Big Sur, CA",
-      "status": "Draft",
+      "status": "Published",
       "stats": "5,200 sq ft • Coastal",
       "description": "Zero-emission cliffside residential pavilion utilizing electrochromic glass facades and geothermal climate architecture.",
       "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
@@ -140,30 +144,12 @@
   ],
   "testimonials": [
     {
-      "id": 1,
-      "author": "Victoria Sterling",
-      "role": "Managing Director, Sterling Capital Partners",
-      "content": "Their transformative vision completely redefined our flagship Manhattan penthouse. The glasswork, custom lighting, and bespoke walnut cabinetry exceed perfection.",
+      "id": 1787915517036,
+      "author": "biruk esayas",
+      "role": "sfsfsf",
+      "content": "fFf",
       "rating": 5,
-      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
-      "status": "Approved"
-    },
-    {
-      "id": 2,
-      "author": "Marcus Vance",
-      "role": "Founder & CEO, Horizon Labs",
-      "content": "Working with this team was an extraordinary experience. They delivered our 30,000 sq ft headquarters on time, on budget, and created an inspiring environment our employees love.",
-      "rating": 5,
-      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-      "status": "Approved"
-    },
-    {
-      "id": 3,
-      "author": "Elena Rostova",
-      "role": "Hospitality Curator, Lumina Resorts",
-      "content": "The level of craftsmanship and architectural subtlety is unmatched. Every corner feels intentional, calming, and deeply luxurious. Truly visionary designers.",
-      "rating": 5,
-      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      "avatar": "/uploads/images_1787915515866.jpg",
       "status": "Approved"
     }
   ],
@@ -199,7 +185,7 @@
       "readTime": "6 min read",
       "publishedAt": "Aug 10, 2026",
       "coverImage": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
-      "status": "Draft"
+      "status": "Published"
     }
   ],
   "team": [
@@ -224,5 +210,16 @@
       "bio": "Pioneering interactive illumination and sustainable smart home architectures for world-class private estates.",
       "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
     }
-  ]
+  ],
+  "company": {
+    "companyName": "AURATECH Studio LLC",
+    "phone": "+1 (212) 555-0198",
+    "email": "concierge@auratech-studio.design",
+    "address": "548 W 22nd Street, Chelsea Arts District",
+    "city": "New York",
+    "postal": "New York, NY 10011",
+    "instagram": "https://instagram.com",
+    "linkedin": "https://linkedin.com",
+    "facebook": "https://facebook.com"
+  }
 }

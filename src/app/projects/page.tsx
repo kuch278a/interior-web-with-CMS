@@ -43,7 +43,7 @@ const INITIAL_PROJECTS: Project[] = [
     year: "2026",
     area: "16,500 sq ft",
     timeline: "18 Months",
-    image: "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80",
     description: "A harmonious synthesis of traditional Sukiya-zukuri wooden carpentry and contemporary minimalist hospitality. Natural thermal spring baths carved from single granite monoliths.",
     highlights: ["Hand-Carved Hinoki Wood", "Monolithic Basalt Baths", "Passive Geothermal Microclimate", "Tea Master Ceremony Pavilion"],
     tag: "Hospitality Sanctuary",
@@ -190,7 +190,7 @@ export default function ProjectsPage() {
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-200 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -220,12 +220,7 @@ export default function ProjectsPage() {
 
                 <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <span>{project.area || project.stats}</span>
-                  <span className="font-semibold text-purple-600 dark:text-purple-400 group-hover:text-purple-500 flex items-center gap-1">
-                    Explore Specs
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
+                  <span>{project.year || "2026"}</span>
                 </div>
               </div>
             </div>

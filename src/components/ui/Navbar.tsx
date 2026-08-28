@@ -55,7 +55,7 @@ export default function Navbar() {
             href="/blog"
             className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-white transition-colors"
           >
-            Insights
+            Blogs
           </Link>
           <Link
             href="/testimonials"
@@ -163,7 +163,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-800 dark:text-slate-200 hover:text-purple-600 dark:hover:text-white"
           >
-            Insights
+            Blogs
           </Link>
           <Link
             href="/testimonials"

@@ -14,7 +14,8 @@ export interface HomepageSettings {
   ctaPrimaryText: string;
   ctaSecondaryText: string;
   metrics: MetricItem[];
-  featuredProjectId: number;
+  featuredProjectId?: number;
+  featuredProjectIds?: number[];
 }
 
 export interface Project {
@@ -74,6 +75,18 @@ export interface TeamMember {
   photo: string;
 }
 
+export interface CompanyInfo {
+  companyName: string;
+  phone: string;
+  email: string;
+  address: string;
+  city: string;
+  postal: string;
+  instagram: string;
+  linkedin: string;
+  facebook: string;
+}
+
 export interface CMSStore {
   homepage: HomepageSettings;
   projects: Project[];
@@ -81,6 +94,7 @@ export interface CMSStore {
   blogPosts: BlogPost[];
   testimonials: Testimonial[];
   team: TeamMember[];
+  company?: CompanyInfo;
 }
 
 export interface CMSResponse<T> {

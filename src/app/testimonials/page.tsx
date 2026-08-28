@@ -5,6 +5,8 @@ import Link from "next/link";
 import { getTestimonials } from "../../../cms/client";
 import type { Testimonial } from "../../../cms/types";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Client Endorsements & Reviews — AURATECH Studio",
   description: "Read verified reviews and experiences from private homeowners and corporate enterprise leaders.",

@@ -5,8 +5,10 @@ import Link from "next/link";
 import { getBlogPosts } from "../../../cms/client";
 import type { BlogPost } from "../../../cms/types";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
-  title: "Insights & Editorial — AURATECH Studio",
+  title: "Blogs & Editorial — AURATECH Studio",
   description: "Architectural treatises, materiality essays, and vanguard design perspectives.",
 };
 
@@ -26,10 +28,10 @@ export default async function BlogPage() {
 
         <div className="relative z-10">
           <span className="text-xs uppercase tracking-widest font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-3.5 py-1.5 rounded-full border border-purple-500/20">
-            Editorial & Journal
+            Blogs & Journal
           </span>
           <h1 className="text-4xl sm:text-6xl font-extrabold mt-5 mb-6 text-slate-900 dark:text-white">
-            Architectural <span className="text-gradient-accent">Perspectives</span>
+            Architectural <span className="text-gradient-accent">Blogs</span>
           </h1>
           <p className="text-slate-600 dark:text-slate-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
             Curated essays on spatial psychology, materiality innovation, circadian
@@ -49,7 +51,7 @@ export default async function BlogPage() {
                 alt={featured.attributes.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-200 group-hover:scale-105"
                 priority
               />
               <div className="absolute top-4 left-4 z-10">
@@ -76,9 +78,6 @@ export default async function BlogPage() {
 
               <div className="pt-6 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
                 <span className="text-xs text-slate-500 dark:text-slate-400">By Sebastian Croft, Principal</span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-600 dark:text-purple-400 group-hover:text-purple-500">
-                  Read Essay →
-                </span>
               </div>
             </div>
           </div>
@@ -97,7 +96,7 @@ export default async function BlogPage() {
                   alt={post.attributes.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-200 group-hover:scale-105"
                 />
                 <div className="absolute top-3 right-3 z-10">
                   <span className="px-2.5 py-1 text-xs font-semibold rounded bg-black/60 backdrop-blur-md text-purple-300 border border-white/10">
@@ -119,9 +118,6 @@ export default async function BlogPage() {
 
                 <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs">
                   <span className="text-slate-500 dark:text-slate-400">Editorial Staff</span>
-                  <span className="font-semibold text-purple-600 dark:text-purple-400 group-hover:text-purple-500 flex items-center gap-1">
-                    Read Article →
-                  </span>
                 </div>
               </div>
             </article>
