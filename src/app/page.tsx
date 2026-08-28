@@ -9,7 +9,6 @@ import {
   getTestimonials,
 } from "../../cms/client";
 
-export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "AURATECH Studio — Visionary Architecture & Interior Design",

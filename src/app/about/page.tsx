@@ -4,7 +4,6 @@ import Navbar from "../../components/ui/Navbar";
 import { getTeamMembers } from "../../../cms/client";
 import type { TeamMember } from "../../../cms/types";
 
-export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Studio & Philosophy — AURATECH",

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { getBlogPosts } from "../../../cms/client";
 import type { BlogPost } from "../../../cms/types";
 
-export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Blogs & Editorial — AURATECH Studio",
