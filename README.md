@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-Proprietary-purple.svg)]()
 
-> **Live Production Website**: **[https://kuch278a.github.io/interior-web-with-CMS/](https://kuch278a.github.io/interior-web-with-CMS/)**
+> **Live Production Website**: **[https://kuch278a.github.io/interior-web-with-CMS](https://kuch278a.github.io/interior-web-with-CMS)**
 
 An award-winning, luxury architectural studio web application built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**, featuring a headless CMS control plane, live dynamic content bindings, interactive spatial cost estimators, and case study modals.
 
@@ -17,7 +17,7 @@ An award-winning, luxury architectural studio web application built with **Next.
 
 | Platform | Status | URL |
 |---|---|---|
-| **GitHub Pages (Active)** | 🟢 Live & Automated | [https://kuch278a.github.io/interior-web-with-CMS/](https://kuch278a.github.io/interior-web-with-CMS/) |
+| **GitHub Pages (Active)** | 🟢 Live & Automated | [https://kuch278a.github.io/interior-web-with-CMS](https://kuch278a.github.io/interior-web-with-CMS) |
 | **Vercel (Optional)** | ⚡ Ready for Import | [Deploy on Vercel](https://vercel.com/new) |
 
 ---
