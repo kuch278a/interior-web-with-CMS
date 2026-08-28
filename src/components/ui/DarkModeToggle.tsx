@@ -1,26 +1,27 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useSyncExternalStore } from "react";
+
+function subscribe(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+function getSnapshot(): boolean {
+  if (typeof window === "undefined") return true;
+  const stored = localStorage.getItem("theme");
+  return stored ? stored === "dark" : true;
+}
+
+function getServerSnapshot(): boolean {
+  return true;
+}
 
 export default function DarkModeToggle() {
-  const [isDark, setIsDark] = useState(true);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme");
-    const currentIsDark = stored ? stored === "dark" : true;
-    setIsDark(currentIsDark);
-    if (currentIsDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
+  const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const toggle = () => {
     const next = !isDark;
-    setIsDark(next);
     if (next) {
       document.documentElement.classList.add("dark");
     } else {
@@ -29,12 +30,6 @@ export default function DarkModeToggle() {
     localStorage.setItem("theme", next ? "dark" : "light");
     window.dispatchEvent(new Event("storage"));
   };
-
-  if (!mounted) {
-    return (
-      <div className="w-10 h-10 rounded-full glass-panel opacity-50" />
-    );
-  }
 
   return (
     <button
@@ -46,7 +41,7 @@ export default function DarkModeToggle() {
       <div className="transition-transform duration-200 group-hover:rotate-12">
         {isDark ? (
           <svg
-            className="w-5 h-5 text-amber-400 animate-fadeIn"
+            className="w-5 h-5 text-amber-400 transition-transform"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -60,7 +55,7 @@ export default function DarkModeToggle() {
           </svg>
         ) : (
           <svg
-            className="w-5 h-5 text-purple-600 animate-fadeIn"
+            className="w-5 h-5 text-purple-600 transition-transform"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
