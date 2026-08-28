@@ -9,33 +9,40 @@
 
 > **Live Production Website**: **[https://kuch278a.github.io/interior-web-with-CMS](https://kuch278a.github.io/interior-web-with-CMS)**
 
-An award-winning, luxury architectural studio web application built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**, featuring a headless CMS control plane, live dynamic content bindings, interactive spatial cost estimators, and case study modals.
+An award-winning, luxury architectural and interior design studio web application built with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**. Features a powerful headless CMS control plane, live dynamic content bindings, interactive spatial cost estimators, multi-project featured selectors, and ultra-fast 50ms–100ms reaction speeds.
 
 ---
 
-## 🌐 Live Deployments
+## 🌐 Live Production Deployments
 
 | Platform | Status | URL |
 |---|---|---|
 | **GitHub Pages (Active)** | 🟢 Live & Automated | [https://kuch278a.github.io/interior-web-with-CMS](https://kuch278a.github.io/interior-web-with-CMS) |
+| **CMS Admin Control Plane** | 🔒 Authenticated | [https://kuch278a.github.io/interior-web-with-CMS/admin](https://kuch278a.github.io/interior-web-with-CMS/admin) |
 | **Vercel (Optional)** | ⚡ Ready for Import | [Deploy on Vercel](https://vercel.com/new) |
 
 ---
 
-## ✨ Key Features
+## ✨ Key Features & Architecture
 
 - **🏛️ High-End Aesthetics & Glassmorphism**: Tailored luxury dark/light mode with glowing ambient orbs, micro-interactions, and smooth cubic-bezier transitions.
-- **⚡ Next.js 16 & React 19 Engine**: Ultra-fast Server-Side Rendering (SSR) with Static Site Generation (SSG), Turbopack, and automatic image optimization.
-- **🛠️ Integrated CMS Control Plane (`/admin`)**:
-  - Live homepage editor (headlines, badge text, metrics, and featured spotlight project).
-  - Portfolio project management (create, publish/unpublish, delete, set featured).
-  - Editorial blog articles & client review collections.
-  - Seamless fallback between Strapi API and local persistent JSON store (`cms/data/store.json`).
-- **📁 Dynamic Portfolio & Case Study Modals (`/projects`)**: Filter by Residential, Commercial, Hospitality, and Sustainable categories with deep-dive technical architectural specifications.
+- **⚡ Ultra-Fast 50ms–100ms Reaction Engine**:
+  - **Instant Theme Switching (50ms)**: Seamless color transitions between dark and light modes.
+  - **Tactile Tap & Click Feedback (75ms)**: Snappy scale pops and active micro-animations on interactive controls.
+  - **Glassmorphism Hover Reactions (80ms)**: Immediate visual elevation on cards and navigation items.
+  - **Image Crossfades & Zooms (100ms)**: Ultra-responsive dual-image crossfades and portfolio card hover scaling.
+- **🛠️ Full-Featured CMS Control Plane (`/admin`)**:
+  - **🏠 Main Page Editor**: Customize hero titles, prefixes, accents, subtitles, metrics, and multi-project featured landmark selections.
+  - **📁 Projects Manager**: Full CRUD for architectural landmarks (create, edit, delete, upload imagery, and toggle home features).
+  - **📝 Blogs & Journal Manager**: Write, edit, publish, and manage editorial architectural treatises.
+  - **⭐ Testimonials & Reviews**: Curate client endorsements, ratings, and press reviews.
+  - **👥 Principals & Partners**: Add, edit, and manage leadership profiles, biographies, and partner portraits.
+  - **🏢 Company & Socials**: Edit phone numbers, concierge email, physical atelier addresses, and social media URLs (Instagram, LinkedIn, Facebook).
+  - **Seamless Multi-Layer Fallback**: Auto-initializes with persistent store data and syncs with `localStorage` across any computer or mobile browser.
+- **📱 Fully Responsive Design**: Fluid layouts optimized across mobile phones (`<640px`), tablets (`640px–1024px`), laptops (`1024px–1280px`), and 4K desktop screens.
 - **📐 Interactive Spatial Estimator (`/services`)**: Real-time project cost and timeline calculator based on square footage, classification, and finish tiers.
-- **📝 Private Commissions Concierge (`/contact`)**: Multi-step project inquiry form with budget brackets, global atelier directories, and validation.
-- **🌓 Flawless Dark/Light Mode**: Hydration-safe theme switching powered by `useSyncExternalStore`.
-- **🚀 100% Type-Safe & Zero Lint Errors**: Strict TypeScript models and ESLint compliance.
+- **📝 Private Commissions Concierge (`/contact`)**: Multi-step project inquiry form with budget brackets, global atelier directories, and vector SVG social links.
+- **🚀 100% Type-Safe & Zero Lint Errors**: Strict TypeScript models and full ESLint compliance.
 
 ---
 
@@ -47,7 +54,7 @@ An award-winning, luxury architectural studio web application built with **Next.
 | **UI Library** | [React 19](https://react.dev/) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) & Vanilla CSS Tokens |
 | **Language** | [TypeScript 5](https://www.typescriptlang.org/) |
-| **CMS / Backend** | Custom Headless REST API (`/api/cms`) + Strapi Integration |
+| **CMS / Backend** | Custom Headless REST API (`/api/cms`) + Local Store (`cms/data/store.json`) + Strapi Integration |
 | **Hosting & CI/CD** | GitHub Pages + GitHub Actions (`.github/workflows/pages.yml`) |
 
 ---
@@ -70,25 +77,21 @@ An award-winning, luxury architectural studio web application built with **Next.
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx            # Main Homepage
-│   │   ├── layout.tsx          # Global Root Layout & Font config
+│   │   ├── layout.tsx          # Global Root Layout & Viewport config
 │   │   ├── globals.css         # Design system, glassmorphism, & theme tokens
-│   │   ├── about/page.tsx      # Studio ethos, team, & awards
+│   │   ├── about/page.tsx      # Studio ethos, leadership team, & awards
 │   │   ├── admin/              # CMS Control Plane & Login
 │   │   ├── api/cms/route.ts    # REST API Route for CMS store
-│   │   ├── blog/page.tsx       # Editorial articles & journal
-│   │   ├── contact/page.tsx    # Inquiry form & global atelier directory
-│   │   ├── projects/page.tsx   # Portfolio & case study modals
-│   │   ├── services/page.tsx   # Disciplines, 4-phase roadmap & estimator
+│   │   ├── api/upload/route.ts # File upload API route
+│   │   ├── blog/page.tsx       # Editorial architectural blogs & journal
+│   │   ├── contact/page.tsx    # Inquiry form, atelier directory, & socials
+│   │   ├── projects/page.tsx   # Portfolio archive & case study modals
+│   │   ├── services/page.tsx   # Capabilities, 4-phase roadmap, & estimator
 │   │   └── testimonials/page.tsx # Client reviews & press mentions
 │   └── components/
-│       └── ui/                 # Reusable UI components (.tsx)
-│           ├── AnimatedButton.tsx
-│           ├── ConsultationForm.tsx
-│           ├── DarkModeToggle.tsx
-│           ├── GlassCard.tsx
-│           ├── HeroSection.tsx
-│           ├── Navbar.tsx
-│           └── TestimonialCard.tsx
+│       └── ui/                 # Reusable UI components
+│           ├── DarkModeToggle.tsx # Ultra-reactive theme switcher
+│           └── Navbar.tsx         # Responsive glassmorphism header navigation
 ├── next.config.ts              # Next.js configuration (static export + basePath)
 ├── package.json
 └── tsconfig.json
@@ -134,12 +137,11 @@ npm run start
 
 ## 🔐 CMS Control Plane (`/admin`)
 
-Access the studio control plane to edit homepage copy, manage portfolio items, or review schemas in real time.
+Access the studio control plane to manage homepage copy, projects, blogs, testimonials, leadership partners, and company contact details:
 
-- **Local URL**: [http://localhost:3000/admin](http://localhost:3000/admin)
-- **Live URL**: [https://kuch278a.github.io/interior-web-with-CMS/admin/](https://kuch278a.github.io/interior-web-with-CMS/admin/)
-- **Demo Admin Email**: `admin@auratech.design`
-- **Demo Password**: `admin123`
+- **Local Admin**: [http://localhost:3000/admin](http://localhost:3000/admin)
+- **Live Admin**: [https://kuch278a.github.io/interior-web-with-CMS/admin](https://kuch278a.github.io/interior-web-with-CMS/admin)
+- **Login Credentials**: `admin@auratech.design` / `admin123`
 
 ---
 
@@ -148,7 +150,7 @@ Access the studio control plane to edit homepage copy, manage portfolio items, o
 Every commit pushed to `master` automatically triggers the **[GitHub Pages Workflow](.github/workflows/pages.yml)**:
 1. Installs dependencies and runs ESLint.
 2. Compiles and exports the Next.js static site to `./out`.
-3. Deploys the latest artifact to [https://kuch278a.github.io/interior-web-with-CMS/](https://kuch278a.github.io/interior-web-with-CMS/).
+3. Deploys the latest build directly to [https://kuch278a.github.io/interior-web-with-CMS](https://kuch278a.github.io/interior-web-with-CMS).
 
 ---
 
