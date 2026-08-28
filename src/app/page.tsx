@@ -91,7 +91,7 @@ export default async function HomePage() {
               className="lg:col-span-7 relative h-72 sm:h-96 lg:h-auto min-h-[340px] overflow-hidden bg-slate-900 block cursor-pointer"
             >
               {/* Base Image (Exterior / Main View) */}
-              <div className="absolute inset-0 w-full h-full transition-all duration-200 ease-out group-hover:scale-105 group-hover:opacity-0">
+              <div className="absolute inset-0 w-full h-full transition-all duration-100 ease-out group-hover:scale-105 group-hover:opacity-0">
                 <Image
                   src={featuredProject.image}
                   alt={featuredProject.title}
@@ -102,7 +102,7 @@ export default async function HomePage() {
                 />
               </div>
               {/* Alternate Hover Image (Interior Perspective) */}
-              <div className="absolute inset-0 w-full h-full transition-all duration-200 ease-out scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-100">
+              <div className="absolute inset-0 w-full h-full transition-all duration-100 ease-out scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-100">
                 <Image
                   src={
                     featuredProject.hoverImage ||
@@ -164,7 +164,7 @@ export default async function HomePage() {
                       alt={p.attributes.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-200 group-hover:scale-105"
+                      className="object-cover transition-transform duration-100 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                     <div className="absolute top-3 left-3 z-10">

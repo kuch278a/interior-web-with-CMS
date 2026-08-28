@@ -50,7 +50,7 @@ export default async function BlogPage() {
                 alt={featured.attributes.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover transition-transform duration-200 group-hover:scale-105"
+                className="object-cover transition-transform duration-100 group-hover:scale-105"
                 priority
               />
               <div className="absolute top-4 left-4 z-10">
@@ -95,7 +95,7 @@ export default async function BlogPage() {
                   alt={post.attributes.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-200 group-hover:scale-105"
+                  className="object-cover transition-transform duration-100 group-hover:scale-105"
                 />
                 <div className="absolute top-3 right-3 z-10">
                   <span className="px-2.5 py-1 text-xs font-semibold rounded bg-black/60 backdrop-blur-md text-purple-300 border border-white/10">

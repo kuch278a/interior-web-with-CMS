@@ -36,9 +36,9 @@ export default function DarkModeToggle() {
       onClick={toggle}
       type="button"
       aria-label="Toggle dark/light mode"
-      className="relative w-10 h-10 rounded-full glass-panel text-slate-700 dark:text-slate-200 hover:text-purple-600 dark:hover:text-purple-300 active:scale-90 transition-all duration-150 focus:outline-none shadow-sm cursor-pointer flex items-center justify-center group"
+      className="relative w-10 h-10 rounded-full glass-panel text-slate-700 dark:text-slate-200 hover:text-purple-600 dark:hover:text-purple-300 active:scale-90 transition-all duration-75 focus:outline-none shadow-sm cursor-pointer flex items-center justify-center group"
     >
-      <div className="transition-transform duration-200 group-hover:rotate-12">
+      <div className="transition-transform duration-100 group-hover:rotate-12">
         {isDark ? (
           <svg
             className="w-5 h-5 text-amber-400 transition-transform"
