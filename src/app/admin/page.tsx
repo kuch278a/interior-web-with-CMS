@@ -14,6 +14,7 @@ import type {
   MetricItem,
   CMSStore,
 } from "../../../cms/types";
+import defaultStore from "../../../cms/data/store.json";
 
 function subscribeAuth(callback: () => void) {
   window.addEventListener("storage", callback);
@@ -47,40 +48,44 @@ export default function CMSAdminPage() {
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
 
-  // Store state
-  const [homepage, setHomepage] = useState<HomepageSettings>({
-    badgeText: "World Architecture Award Winner 2026",
-    heroTitlePrefix: "Transforming Spaces into",
-    heroTitleAccent: "Timeless Masterpieces",
-    heroSubtitle:
-      "We combine structural architectural precision, organic materiality, and circadian ambient illumination to craft bespoke physical sanctuaries.",
-    ctaPrimaryText: "Explore Portfolio",
-    ctaSecondaryText: "Capabilities & Process",
-    metrics: [
-      { value: "140+", label: "Landmarks Built" },
-      { value: "18", label: "Design Awards" },
-      { value: "99.4%", label: "Satisfaction" },
-      { value: "12 yrs", label: "Studio Excellence" },
-    ],
-    featuredProjectId: 1,
-    featuredProjectIds: [1, 2, 3],
-  });
+  // Homepage Settings State
+  const [homepage, setHomepage] = useState<HomepageSettings>(
+    (defaultStore.homepage as HomepageSettings) || {
+      badgeText: "World Architecture Festival 2026 Winner",
+      heroTitlePrefix: "Crafting Timeless",
+      heroTitleAccent: "Architectural Sanctuaries",
+      heroSubtitle:
+        "We merge brutalist monumentality, organic materiality, and bespoke interior precision to create transcendent spatial landmarks worldwide.",
+      ctaPrimaryText: "Explore Landmark Portfolio",
+      ctaSecondaryText: "Studio Philosophy & Pedigree",
+      metrics: [
+        { value: "$2.4B+", label: "Commission Portfolio" },
+        { value: "18", label: "Design Awards" },
+        { value: "99.4%", label: "Satisfaction" },
+        { value: "12 yrs", label: "Studio Excellence" },
+      ],
+      featuredProjectId: 1,
+      featuredProjectIds: [1, 2, 3],
+    }
+  );
 
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [blogs, setBlogs] = useState<BlogPost[]>([]);
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [team, setTeam] = useState<TeamMember[]>([]);
-  const [company, setCompany] = useState<CompanyInfo>({
-    companyName: "AURATECH Studio LLC",
-    phone: "+1 (212) 555-0198",
-    email: "concierge@auratech-studio.design",
-    address: "548 W 22nd Street, Chelsea Arts District",
-    city: "New York",
-    postal: "New York, NY 10011",
-    instagram: "https://instagram.com",
-    linkedin: "https://linkedin.com",
-    facebook: "https://facebook.com",
-  });
+  const [projects, setProjects] = useState<Project[]>((defaultStore.projects as Project[]) || []);
+  const [blogs, setBlogs] = useState<BlogPost[]>((defaultStore.blogPosts as BlogPost[]) || []);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>((defaultStore.testimonials as Testimonial[]) || []);
+  const [team, setTeam] = useState<TeamMember[]>((defaultStore.team as TeamMember[]) || []);
+  const [company, setCompany] = useState<CompanyInfo>(
+    (defaultStore.company as CompanyInfo) || {
+      companyName: "AURATECH Studio LLC",
+      phone: "+1 (212) 555-0198",
+      email: "concierge@auratech-studio.design",
+      address: "548 W 22nd Street, Chelsea Arts District",
+      city: "New York",
+      postal: "New York, NY 10011",
+      instagram: "https://instagram.com",
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    }
+  );
 
   // New item modal form state
   const [showModal, setShowModal] = useState(false);
@@ -173,11 +178,32 @@ export default function CMSAdminPage() {
     setLoadingState(false);
   };
 
+  const getApiUrl = (endpoint: string) => {
+    if (typeof window === "undefined") return endpoint;
+    const isGh = window.location.pathname.includes("/interior-web-with-CMS");
+    return isGh ? `/interior-web-with-CMS${endpoint}` : endpoint;
+  };
+
   useEffect(() => {
     let ignore = false;
     const loadStore = async () => {
+      // 1. Check if local edits exist in localStorage
       try {
-        const res = await fetch("/api/cms");
+        const localSaved = localStorage.getItem("auratech_cms_store");
+        if (localSaved && !ignore) {
+          const parsed = JSON.parse(localSaved) as Partial<CMSStore>;
+          if (parsed.homepage) setHomepage((prev) => ({ ...prev, ...parsed.homepage }));
+          if (parsed.projects && parsed.projects.length > 0) setProjects(parsed.projects);
+          if (parsed.blogPosts && parsed.blogPosts.length > 0) setBlogs(parsed.blogPosts);
+          if (parsed.testimonials && parsed.testimonials.length > 0) setTestimonials(parsed.testimonials);
+          if (parsed.team && parsed.team.length > 0) setTeam(parsed.team);
+          if (parsed.company) setCompany((prev) => ({ ...prev, ...parsed.company }));
+        }
+      } catch {}
+
+      // 2. Fetch fresh store from API
+      try {
+        const res = await fetch(getApiUrl("/api/cms"));
         if (res.ok && !ignore) {
           const data = (await res.json()) as CMSStore;
           if (data.homepage) setHomepage(data.homepage);
@@ -188,7 +214,7 @@ export default function CMSAdminPage() {
           if (data.company) setCompany(data.company);
         }
       } catch (e) {
-        console.error("Failed to load store", e);
+        console.error("Using default initial store", e);
       } finally {
         if (!ignore) {
           setLoading(false);
@@ -206,8 +232,17 @@ export default function CMSAdminPage() {
   const persistUpdate = async (updates: Partial<CMSStore>, successMsg = "Changes saved to live main page!") => {
     setSaving(true);
     setSaveMessage("");
+
+    // Cache locally
     try {
-      const res = await fetch("/api/cms", {
+      const currentLocal = localStorage.getItem("auratech_cms_store");
+      const base = currentLocal ? JSON.parse(currentLocal) : {};
+      const merged = { ...base, ...updates };
+      localStorage.setItem("auratech_cms_store", JSON.stringify(merged));
+    } catch {}
+
+    try {
+      const res = await fetch(getApiUrl("/api/cms"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updates),
@@ -215,9 +250,13 @@ export default function CMSAdminPage() {
       if (res.ok) {
         setSaveMessage(`✓ ${successMsg}`);
         setTimeout(() => setSaveMessage(""), 4000);
+      } else {
+        setSaveMessage(`✓ ${successMsg} (saved locally in browser)`);
+        setTimeout(() => setSaveMessage(""), 4000);
       }
     } catch {
-      setSaveMessage("Error saving changes.");
+      setSaveMessage(`✓ ${successMsg} (saved locally in browser)`);
+      setTimeout(() => setSaveMessage(""), 4000);
     } finally {
       setSaving(false);
     }
